@@ -5,19 +5,13 @@
     <div class="field">
       <label for="nombre">Nombre</label>
       <input id="nombre" type="text" formControlName="nombre" placeholder="Ingrese nombre" />
-      @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) {
-        <span class="error">El nombre es requerido.</span>
-      }
     </div>
 
     <div class="field">
       <label for="descripcion">Descripción</label>
       <textarea id="descripcion" formControlName="descripcion" rows="4" placeholder="Ingrese descripción"></textarea>
-      @if (form.get('descripcion')?.invalid && form.get('descripcion')?.touched) {
-        <span class="error">La descripción es requerida.</span>
-      }
     </div>
 
-    <button type="submit" [disabled]="form.invalid">Enviar</button>
+    <button type="submit">Apuntar</button>
   </form>
 </section>

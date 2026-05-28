@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -12,15 +12,13 @@ export class RegistroComponent {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      nombre: ['', Validators.required],
-      descripcion: ['', Validators.required],
+      nombre: [''],
+      descripcion: [''],
     });
   }
 
   onSubmit(): void {
-    if (this.form.valid) {
-      console.log('Form data:', this.form.value);
-      // TODO: connect to Spring Boot API
-    }
+    console.log('Form data:', this.form.value);
+    // TODO: connect to Spring Boot API
   }
 }
