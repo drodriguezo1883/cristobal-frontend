@@ -11,17 +11,46 @@
 
       <div class="field">
         <label for="nombre">Nombre</label>
-        <input id="nombre" type="text" formControlName="nombre" placeholder="Ingrese su nombre" />
+        <input
+          id="nombre"
+          type="text"
+          formControlName="nombre"
+          placeholder="Ingrese su nombre"
+          (input)="stripNonAlpha($event, 'nombre')"
+        />
+        @if (form.get('nombre')?.errors?.['pattern'] && form.get('nombre')?.touched) {
+          <span class="error">Solo se permiten letras.</span>
+        }
       </div>
 
       <div class="field">
         <label for="apellido">Apellido</label>
-        <input id="apellido" type="text" formControlName="apellido" placeholder="Ingrese su apellido" />
+        <input
+          id="apellido"
+          type="text"
+          formControlName="apellido"
+          placeholder="Ingrese su apellido"
+          (input)="stripNonAlpha($event, 'apellido')"
+        />
+        @if (form.get('apellido')?.errors?.['pattern'] && form.get('apellido')?.touched) {
+          <span class="error">Solo se permiten letras.</span>
+        }
       </div>
 
       <div class="field">
         <label for="telefono">Teléfono</label>
-        <input id="telefono" type="tel" formControlName="telefono" placeholder="Ingrese su teléfono" />
+        <input
+          id="telefono"
+          type="tel"
+          inputmode="numeric"
+          formControlName="telefono"
+          placeholder="Ej: 88001234"
+          maxlength="8"
+          (input)="stripNonNumeric($event, 'telefono')"
+        />
+        @if (form.get('telefono')?.errors?.['pattern'] && form.get('telefono')?.touched) {
+          <span class="error">Ingrese un número de Costa Rica válido (8 dígitos, empieza con 2, 6, 7 u 8).</span>
+        }
       </div>
 
       <div class="field">
@@ -32,7 +61,7 @@
           inputmode="numeric"
           formControlName="codigo"
           placeholder="Solo números"
-          (input)="stripNonNumeric($event)"
+          (input)="stripNonNumeric($event, 'codigo')"
         />
         @if (form.get('codigo')?.errors?.['pattern'] && form.get('codigo')?.touched) {
           <span class="error">Solo se permiten números.</span>

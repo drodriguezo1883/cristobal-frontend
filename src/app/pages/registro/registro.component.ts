@@ -16,17 +16,23 @@ export class RegistroComponent {
 
   constructor(private fb: FormBuilder, private registroService: RegistroService) {
     this.form = this.fb.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      telefono: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s\-]+$/)]],
+      apellido: ['', [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s\-]+$/)]],
+      telefono: ['', [Validators.required, Validators.pattern(/^[2678]\d{7}$/)]],
       codigo: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
     });
   }
 
-  stripNonNumeric(event: Event): void {
+  stripNonAlpha(event: Event, field: string): void {
+    const input = event.target as HTMLInputElement;
+    input.value = input.value.replace(/[^a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s\-]/g, '');
+    this.form.get(field)?.setValue(input.value, { emitEvent: false });
+  }
+
+  stripNonNumeric(event: Event, field: string): void {
     const input = event.target as HTMLInputElement;
     input.value = input.value.replace(/\D/g, '');
-    this.form.get('codigo')?.setValue(input.value, { emitEvent: false });
+    this.form.get(field)?.setValue(input.value, { emitEvent: false });
   }
 
   onSubmit(): void {
