@@ -1,17 +1,52 @@
 <section class="registro-page">
   <h1>Registro</h1>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <div class="field">
-      <label for="nombre">Nombre</label>
-      <input id="nombre" type="text" formControlName="nombre" placeholder="Ingrese nombre" />
+  @if (enviado()) {
+    <div class="confirmacion">
+      <p>¡Registro enviado con éxito!</p>
+      <button (click)="resetForm()">Registrar otro</button>
     </div>
+  } @else {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <div class="field">
-      <label for="descripcion">Descripción</label>
-      <textarea id="descripcion" formControlName="descripcion" rows="4" placeholder="Ingrese descripción"></textarea>
-    </div>
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" formControlName="nombre" placeholder="Ingrese su nombre" />
+      </div>
 
-    <button type="submit">Apuntar</button>
-  </form>
+      <div class="field">
+        <label for="apellido">Apellido</label>
+        <input id="apellido" type="text" formControlName="apellido" placeholder="Ingrese su apellido" />
+      </div>
+
+      <div class="field">
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" type="tel" formControlName="telefono" placeholder="Ingrese su teléfono" />
+      </div>
+
+      <div class="field">
+        <label for="codigo">Código</label>
+        <input
+          id="codigo"
+          type="text"
+          inputmode="numeric"
+          formControlName="codigo"
+          placeholder="Solo números"
+          (input)="stripNonNumeric($event)"
+        />
+        @if (form.get('codigo')?.errors?.['pattern'] && form.get('codigo')?.touched) {
+          <span class="error">Solo se permiten números.</span>
+        }
+      </div>
+
+      @if (error()) {
+        <p class="error-envio">Hubo un error al enviar. Intente de nuevo.</p>
+      }
+
+      <button type="submit" [disabled]="form.invalid || cargando()">
+        {{ cargando() ? 'Enviando...' : 'Apuntar' }}
+      </button>
+
+    </form>
+  }
 </section>
