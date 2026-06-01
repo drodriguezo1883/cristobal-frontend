@@ -17,7 +17,6 @@ export class RegistroComponent {
   constructor(private fb: FormBuilder, private registroService: RegistroService) {
     this.form = this.fb.group({
       nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s\-]+$/)]],
-      apellido: ['', [Validators.required, Validators.pattern(/^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s\-]+$/)]],
       telefono: ['', [Validators.required, Validators.pattern(/^[2678]\d{7}$/)]],
       codigo: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
     });

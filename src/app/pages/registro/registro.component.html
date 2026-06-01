@@ -10,29 +10,15 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <div class="field">
-        <label for="nombre">Nombre</label>
+        <label for="nombre">Nombre completo</label>
         <input
           id="nombre"
           type="text"
           formControlName="nombre"
-          placeholder="Ingrese su nombre"
+          placeholder="Ingrese su nombre completo"
           (input)="stripNonAlpha($event, 'nombre')"
         />
         @if (form.get('nombre')?.errors?.['pattern'] && form.get('nombre')?.touched) {
-          <span class="error">Solo se permiten letras.</span>
-        }
-      </div>
-
-      <div class="field">
-        <label for="apellido">Apellido</label>
-        <input
-          id="apellido"
-          type="text"
-          formControlName="apellido"
-          placeholder="Ingrese su apellido"
-          (input)="stripNonAlpha($event, 'apellido')"
-        />
-        @if (form.get('apellido')?.errors?.['pattern'] && form.get('apellido')?.touched) {
           <span class="error">Solo se permiten letras.</span>
         }
       </div>
