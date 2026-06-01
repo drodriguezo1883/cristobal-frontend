@@ -2,105 +2,145 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  justify-content: center;
   height: 100vh;
+  padding: 2rem;
   background-image: url('/images/FONDO-FORMULARIO.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  h1 {
+  &.fondo-inicio {
+    background-image: url('/images/FONDO-INICIO.png');
+  }
+
+  .logo {
+    max-width: 17.5rem;
+    width: 55%;
     margin-bottom: 1.5rem;
   }
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    align-items: center;
+    gap: 0.5rem;
     width: 100%;
-    max-width: 480px;
+    max-width: 28.75rem;
   }
 
   .field {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    align-items: center;
+    width: 100%;
+    gap: 0.25rem;
 
     label {
-      font-weight: 600;
-      font-size: 0.95rem;
+      color: white;
+      font-family: 'Citrus Gothic Solid', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
     }
 
     input {
-      padding: 0.6rem 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      width: 100%;
+      padding: 0.65rem 1rem;
+      border: none;
+      border-radius: 1.5625rem;
       font-size: 1rem;
+      background: white;
+      outline: none;
+      text-align: center;
+    }
 
-      &:focus {
-        outline: none;
-        border-color: #1976d2;
-      }
+    .hint {
+      color: white;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 0.1rem;
     }
   }
 
   .error {
-    color: red;
-    font-size: 0.8rem;
+    color: #ffcccc;
+    font-size: 0.78rem;
+    text-align: center;
   }
 
   .error-envio {
-    color: red;
-    font-size: 0.9rem;
+    color: #ffcccc;
+    font-size: 0.85rem;
     text-align: center;
+  }
+
+  .btn-img {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 0.75rem;
+
+    img {
+      width: 12.5rem;
+      display: block;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.btn-salir img {
+      width: 5.625rem;
+    }
   }
 
   .confirmacion {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-    text-align: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    padding: 2rem 0;
 
-    p {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #2e7d32;
+    .logo {
+      max-width: 26.25rem;
+      width: 65%;
+      margin-bottom: 0;
     }
 
-    button {
-      padding: 0.6rem 1.5rem;
-      background-color: #1976d2;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
+    .botones {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
 
-      &:hover {
-        background-color: #1565c0;
+    .info-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      text-align: center;
+
+      p {
+        color: white;
+        font-family: 'Citrus Gothic Solid', sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        line-height: 1.5;
       }
-    }
-  }
 
-  button[type='submit'] {
-    margin-top: 0.5rem;
-    padding: 0.75rem;
-    background-color: #1976d2;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-
-    &:hover:not(:disabled) {
-      background-color: #1565c0;
-    }
-
-    &:disabled {
-      background-color: #aaa;
-      cursor: not-allowed;
+      .linea {
+        width: 16.25rem;
+      }
     }
   }
 }

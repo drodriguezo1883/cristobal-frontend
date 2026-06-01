@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { RegistroService } from '../../services/registro.service';
 
 @Component({
   selector: 'app-registro',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.scss'
 })

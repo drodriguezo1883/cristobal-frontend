@@ -1,12 +1,28 @@
-<section class="registro-page">
-  <h1>Registro</h1>
+<section class="registro-page" [class.fondo-inicio]="enviado()">
 
   @if (enviado()) {
     <div class="confirmacion">
-      <p>¡Registro enviado con éxito!</p>
-      <button (click)="resetForm()">Registrar otro</button>
+      <img src="/images/LOGO-FORMULARIO.png" alt="Código Cristóbal" class="logo" />
+
+      <div class="botones">
+        <button class="btn-img" (click)="resetForm()">
+          <img src="/images/BOTON-APUNTAR-OTRO-CODIGO.png" alt="Apuntar otro código" />
+        </button>
+        <a class="btn-img btn-salir" routerLink="/info">
+          <img src="/images/BOTON-SALIR.png" alt="Salir" />
+        </a>
+      </div>
+
+      <div class="info-bottom">
+        <p>Sorteo en combinación con la Lotería<br>Nacional de todos los domingos</p>
+        <img src="/images/LINEA-BEIGE.png" alt="" class="linea" />
+        <p>Este empaque juega solo por este domingo</p>
+      </div>
     </div>
+
   } @else {
+    <img src="/images/LOGO-FORMULARIO.png" alt="Código Cristóbal" class="logo" />
+
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <div class="field">
@@ -15,7 +31,6 @@
           id="nombre"
           type="text"
           formControlName="nombre"
-          placeholder="Ingrese su nombre completo"
           (input)="stripNonAlpha($event, 'nombre')"
         />
         @if (form.get('nombre')?.errors?.['pattern'] && form.get('nombre')?.touched) {
@@ -24,31 +39,30 @@
       </div>
 
       <div class="field">
-        <label for="telefono">Teléfono</label>
+        <label for="telefono">Número de teléfono</label>
         <input
           id="telefono"
           type="tel"
           inputmode="numeric"
           formControlName="telefono"
-          placeholder="Ej: 88001234"
           maxlength="8"
           (input)="stripNonNumeric($event, 'telefono')"
         />
         @if (form.get('telefono')?.errors?.['pattern'] && form.get('telefono')?.touched) {
-          <span class="error">Ingrese un número de Costa Rica válido (8 dígitos, empieza con 2, 6, 7 u 8).</span>
+          <span class="error">Número de Costa Rica válido (8 dígitos, empieza con 2, 6, 7 u 8).</span>
         }
       </div>
 
       <div class="field">
-        <label for="codigo">Código</label>
+        <label for="codigo">Código Cristóbal</label>
         <input
           id="codigo"
           type="text"
           inputmode="numeric"
           formControlName="codigo"
-          placeholder="Solo números"
           (input)="stripNonNumeric($event, 'codigo')"
         />
+        <span class="hint">Juegan los dos últimos dígitos de tu código</span>
         @if (form.get('codigo')?.errors?.['pattern'] && form.get('codigo')?.touched) {
           <span class="error">Solo se permiten números.</span>
         }
@@ -58,8 +72,8 @@
         <p class="error-envio">Hubo un error al enviar. Intente de nuevo.</p>
       }
 
-      <button type="submit" [disabled]="form.invalid || cargando()">
-        {{ cargando() ? 'Enviando...' : 'Apuntar' }}
+      <button type="submit" class="btn-img" [disabled]="form.invalid || cargando()">
+        <img src="/images/BOTON-APUNTAR.png" alt="Apuntar" />
       </button>
 
     </form>
