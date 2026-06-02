@@ -60,6 +60,7 @@
           type="text"
           inputmode="numeric"
           formControlName="codigo"
+          maxlength="12"
           (input)="stripNonNumeric($event, 'codigo')"
         />
         <span class="hint">Juegan los dos últimos dígitos de tu código</span>
