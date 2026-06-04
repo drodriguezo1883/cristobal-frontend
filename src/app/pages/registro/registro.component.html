@@ -21,7 +21,9 @@
     </div>
 
   } @else {
-    <img src="/images/LOGO-FORMULARIO.png" alt="Código Cristóbal" class="logo" fetchpriority="high" />
+    <a routerLink="/info" class="logo-link">
+      <img src="/images/LOGO-FORMULARIO.png" alt="Código Cristóbal" class="logo" fetchpriority="high" />
+    </a>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
