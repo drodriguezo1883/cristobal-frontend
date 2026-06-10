@@ -1,0 +1,197 @@
+.registro-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+  background-image: url('/images/FONDO-FORMULARIO.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeIn 0.5s ease both;
+  transition: background-image 0.4s ease;
+
+  &.fondo-inicio {
+    background-image: url('/images/FONDO-INICIO.png');
+  }
+
+  .logo-link {
+    display: contents;
+  }
+
+  .logo {
+    max-width: 17.5rem;
+    width: 55%;
+    margin-bottom: 1.5rem;
+    animation: scaleIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+    transition: transform 0.2s ease, filter 0.2s ease;
+
+    &:hover {
+      transform: scale(1.03);
+      filter: brightness(1.05);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 28.75rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.25rem;
+    opacity: 0;
+    animation: fadeSlideUp 0.5s ease forwards;
+
+    &:nth-child(1) { animation-delay: 0.25s; }
+    &:nth-child(2) { animation-delay: 0.38s; }
+    &:nth-child(3) { animation-delay: 0.51s; }
+
+    label {
+      color: white;
+      font-family: 'Citrus Gothic Solid', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.65rem 1rem;
+      border: none;
+      border-radius: 1.5625rem;
+      font-size: 1rem;
+      background: white;
+      outline: none;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:focus {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.45);
+      }
+    }
+
+    .hint {
+      color: white;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 0.1rem;
+    }
+  }
+
+  .error {
+    color: #ffcccc;
+    font-size: 0.78rem;
+    text-align: center;
+  }
+
+  .error-envio {
+    color: #ffcccc;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .btn-img {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 0.75rem;
+    animation: fadeSlideUp 0.5s ease 0.62s both;
+    transition: transform 0.2s ease, filter 0.2s ease;
+
+    &:hover:not(:disabled) {
+      transform: scale(1.06);
+      filter: brightness(1.08);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.97);
+    }
+
+    img {
+      width: 12.5rem;
+      display: block;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.btn-salir img {
+      width: 5.625rem;
+    }
+  }
+
+  .confirmacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    padding: 2rem 0;
+
+    .logo {
+      max-width: 26.25rem;
+      width: 65%;
+      margin-bottom: 0;
+      animation: bouncIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+    }
+
+    .texto-confirmacion {
+      color: white;
+      font-family: 'Citrus Gothic Solid', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      animation: fadeSlideUp 0.5s ease 0.25s both;
+    }
+
+    .botones {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+
+      .btn-img:first-child { animation-delay: 0.3s; }
+      .btn-img:last-child  { animation-delay: 0.45s; }
+    }
+
+    .info-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      text-align: center;
+      animation: fadeIn 0.6s ease 0.55s both;
+
+      p {
+        color: white;
+        font-family: 'Citrus Gothic Solid', sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        line-height: 1.5;
+      }
+
+      .linea {
+        width: 16.25rem;
+      }
+    }
+  }
+}
