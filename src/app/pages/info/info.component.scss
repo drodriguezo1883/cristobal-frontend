@@ -11,6 +11,40 @@
   background-position: center;
   background-repeat: no-repeat;
   animation: fadeIn 0.6s ease both;
+  position: relative;
+
+  .mockup {
+    position: absolute;
+    bottom: 0;
+    width: 16rem;
+    max-width: 24%;
+    filter: drop-shadow(0 1.5rem 2rem rgba(0, 0, 0, 0.5));
+    transition: transform 0.35s ease, filter 0.35s ease;
+
+    &.mockup-atras {
+      left: 8%;
+      transform: rotate(-12deg) translateY(6%);
+      transform-origin: bottom center;
+      animation: fadeSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+
+      &:hover {
+        transform: rotate(-6deg) translateY(2%) scale(1.05);
+        filter: drop-shadow(0 2rem 2.5rem rgba(0, 0, 0, 0.6));
+      }
+    }
+
+    &.mockup-frente {
+      right: 8%;
+      transform: rotate(12deg) translateY(6%);
+      transform-origin: bottom center;
+      animation: fadeSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s both;
+
+      &:hover {
+        transform: rotate(6deg) translateY(2%) scale(1.05);
+        filter: drop-shadow(0 2rem 2.5rem rgba(0, 0, 0, 0.6));
+      }
+    }
+  }
 
   .logo {
     max-width: 28rem;
