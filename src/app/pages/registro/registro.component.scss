@@ -195,3 +195,173 @@
     }
   }
 }
+
+/* Mobile-friendly breakpoints */
+@media (max-width: 768px) {
+  .registro-page {
+    padding: 1rem;
+
+    .logo {
+      max-width: 14rem;
+      width: 60%;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      max-width: 100%;
+      gap: 0.75rem;
+    }
+
+    .field {
+      label {
+        font-size: 1rem;
+      }
+
+      input {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        min-height: 2.75rem;
+      }
+
+      .hint {
+        font-size: 0.7rem;
+      }
+    }
+
+    .btn-img {
+      margin-top: 1rem;
+
+      img {
+        width: 10rem;
+      }
+
+      &.btn-salir img {
+        width: 4.5rem;
+      }
+    }
+
+    .confirmacion {
+      padding: 1rem 0;
+
+      .logo {
+        max-width: 18rem;
+        width: 70%;
+      }
+
+      .texto-confirmacion {
+        font-size: 1.1rem;
+      }
+
+      .botones {
+        gap: 0.75rem;
+      }
+
+      .info-bottom {
+        gap: 0.4rem;
+
+        p {
+          font-size: 0.75rem;
+        }
+
+        .linea {
+          width: 13rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .registro-page {
+    padding: 0.75rem;
+    justify-content: flex-start;
+
+    .logo {
+      max-width: 12rem;
+      width: 65%;
+      margin-bottom: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    form {
+      gap: 0.5rem;
+    }
+
+    .field {
+      gap: 0.15rem;
+
+      label {
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+      }
+
+      input {
+        padding: 0.85rem 0.75rem;
+        font-size: 1rem;
+        min-height: 2.75rem;
+      }
+
+      .hint {
+        font-size: 0.65rem;
+        margin-top: 0;
+      }
+    }
+
+    .error {
+      font-size: 0.7rem;
+    }
+
+    .btn-img {
+      margin-top: 0.75rem;
+
+      img {
+        width: 8rem;
+      }
+
+      &.btn-salir img {
+        width: 3.5rem;
+      }
+    }
+
+    .confirmacion {
+      padding: 0.75rem 0;
+
+      .logo {
+        max-width: 15rem;
+        width: 75%;
+        margin-bottom: 1rem;
+      }
+
+      .texto-confirmacion {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .botones {
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+
+        .btn-img img {
+          width: 8rem;
+        }
+
+        .btn-img.btn-salir img {
+          width: 3.5rem;
+        }
+      }
+
+      .info-bottom {
+        gap: 0.3rem;
+
+        p {
+          font-size: 0.7rem;
+          line-height: 1.2;
+        }
+
+        .linea {
+          width: 11rem;
+        }
+      }
+    }
+  }
+}
